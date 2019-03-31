@@ -22,12 +22,11 @@ def test():
 #    result = json.loads(MessageToJson(result))
     entList = []
     for entity in result.entities:
+        qualities = {}
+        qualities['Name'] = '{}'.format(entity.name)
         for mention in entity.mentions:
-            qualities = {}
-            qualities['Content'] = '{}'.format(mention.text.content)
             qualities['Magnitude'] = '{}'.format(mention.sentiment.magnitude)
             qualities['Sentiment'] = '{}'.format(mention.sentiment.score)
-            qualities['Type'] = '{}'.format(mention.type)
             qualities['Salience'] = '{}'.format(entity.salience)
             entList.append(qualities)
     return json.dumps(entList)
