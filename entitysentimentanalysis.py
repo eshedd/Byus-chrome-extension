@@ -21,7 +21,7 @@ from google.cloud.language import types
 import sys
 import six
 
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"]= "Desktop/Ali/apps/POLO/Alathea/credentials.json"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"]= "/Users/ethanshedd/Downloads/credentials.json"
 
 print ("something")
 
@@ -42,16 +42,17 @@ def entity_sentiment_text(text):
         encoding = enums.EncodingType.UTF16
 
     result = client.analyze_entity_sentiment(document, encoding)
+    return result
 
-    for entity in result.entities:
+#    for entity in result.entities:
         #print('Mentions: ')
-        print(u'Name: "{}"'.format(entity.name))
-        for mention in entity.mentions:
-            print(u'  Begin Offset : {}'.format(mention.text.begin_offset))
-            print(u'  Content : {}'.format(mention.text.content))
-            print(u'  Magnitude : {}'.format(mention.sentiment.magnitude))
-            print(u'  Sentiment : {}'.format(mention.sentiment.score))
-            print(u'  Type : {}'.format(mention.type))
-        print(u'Salience: {}'.format(entity.salience))
+#        print(u'Name: "{}"'.format(entity.name))
+#        for mention in entity.mentions:
+#            print(u'  Begin Offset : {}'.format(mention.text.begin_offset))
+#            print(u'  Content : {}'.format(mention.text.content))
+#            print(u'  Magnitude : {}'.format(mention.sentiment.magnitude))
+#            print(u'  Sentiment : {}'.format(mention.sentiment.score))
+#            print(u'  Type : {}'.format(mention.type))
+#        print(u'Salience: {}'.format(entity.salience))
 text1 = "bad Google, headquartered in Mountain View, unveiled the new Android phone at the Consumer Electronic Show.  Sundar Pichai said in his keynote that users love their new Android phones."
 entity_sentiment_text(text1)
