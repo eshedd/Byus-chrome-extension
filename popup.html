@@ -2,6 +2,8 @@
 <html>
 <head>
 <meta charset="iso-8859-1">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <style>
 body {    
     margin: 0 !important;
@@ -17,6 +19,16 @@ body {
 </style>
 </head>
 <body onLoad="">
-<iframe src=http://brython.info/console.html id="frame" seamless="seamless" scrolling="no"></iframe>
+    <label for="">Name</label><br><input type="text" id="name"> <br>
+    <label for="">Details</label><textarea id="details"></textarea>
+    <input id="clickme" name="myBtn" type="submit" value="click me">
+    <script type="text/javascript">
+        $.get("/", {
+               text: 'this is some placeholder text'
+           })
+        .done(function(){
+               console.log("success!");
+           });
+    </script>
 </body>
 </html>
