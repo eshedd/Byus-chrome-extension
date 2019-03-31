@@ -5,6 +5,11 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <style>
+    #message {
+        width: 50%;
+        height: 50%;
+        border-color: white;
+    }
 body {    
     margin: 0 !important;
     padding: 0 !important;
@@ -19,16 +24,21 @@ body {
 </style>
 </head>
 <body onLoad="">
-    <label for="">Name</label><br><input type="text" id="name"> <br>
-    <label for="">Details</label><textarea id="details"></textarea>
-    <input id="clickme" name="myBtn" type="submit" value="click me">
+    <label>Details</label><textarea id="details"></textarea>
+    <input onclick="clicked();" id="clickme" name="myBtn" type="submit" value="click me">
+    <textarea id="message"></textarea>
     <script type="text/javascript">
-        $.get("/", {
-               text: 'this is some placeholder text'
+        function clicked() {
+            theDeets = document.getElementById("details").value;
+                    console.log(theDeets);
+                    $.get("/analyze", {
+               text: theDeets
            })
-        .done(function(){
-               console.log("success!");
+        .done(function(result){
+                document.getElementById("message").value = result;
+               console.log(result);
            });
+        }
     </script>
 </body>
 </html>
