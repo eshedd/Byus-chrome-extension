@@ -39,6 +39,11 @@ body {
                console.log(result);
            });
         }
+        function scrape(){
+            $("#links").load("/Main_Page #jq-p-Getting-Started li",function() {
+                alert("load was performed");
+            });
+        }
     </script>
 </body>
 </html>
