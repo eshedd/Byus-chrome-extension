@@ -25,7 +25,7 @@ import argparse
 import operator
 
 
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"]= "Desktop/Ali/apps/POLO/Alathea/credentials.json"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"]= "/Users/ethanshedd/Downloads/credentials.json"
 
 entities = []
 print ("something")
@@ -68,11 +68,14 @@ def entity_sentiment_text(text):
             qualities['Type'] = '{}'.format(mention.type)
             qualities['Salience'] = '{}'.format(entity.salience)
             entList.append(qualities)
+    print ("entlist::")
     print (entList)
 
     for entity in result.entities:
         entities.append(SentimentEntity(entity))
+    print ("entities::")
     print(entities)
+    return result
 
 text1 ="bad Google, headquartered in Mountain View, unveiled the new good google at google.  Sundar Pichai said in his keynote that users love their new googles."
 entity_sentiment_text(text1)
